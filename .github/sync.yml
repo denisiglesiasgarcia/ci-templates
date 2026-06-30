@@ -2,6 +2,10 @@ group:
   # Add more POS repos below, one "owner/repo" per line inside the `repos: |` block.
   - repos: |
       denisiglesiasgarcia/amoen_calcul_objectif_dashboard
+      denisiglesiasgarcia/sitg-api
+      denisiglesiasgarcia/sitg-geocode
+      denisiglesiasgarcia/amoen-python
+      denisiglesiasgarcia/calcul_idc_dashboard
     files:
       - source: .pre-commit-config.yaml
       - source: Makefile
