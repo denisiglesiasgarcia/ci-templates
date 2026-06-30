@@ -1,7 +1,7 @@
 group:
+  # Add more POS repos below, one "owner/repo" per line inside the `repos: |` block.
   - repos: |
       denisiglesiasgarcia/amoen_calcul_objectif_dashboard
-      # Add your other POS repos here, one per line, as owner/repo
     files:
       - source: .pre-commit-config.yaml
       - source: Makefile
