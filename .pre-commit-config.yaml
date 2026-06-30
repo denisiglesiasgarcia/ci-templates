@@ -8,6 +8,8 @@
 # First-time setup (per repo):
 #   pre-commit install
 #   pre-commit autoupdate   # pins hook revs to their actual latest release
+#
+# (sync test — safe to remove once the sync PR is confirmed)
 
 repos:
   - repo: https://github.com/gitleaks/gitleaks
