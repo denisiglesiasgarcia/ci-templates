@@ -1,8 +1,14 @@
 # ci-templates
 
-Shared dev-tooling config (pre-commit hooks, Makefile, version-bump/tag scripts)
-for POS repos. Edit a file here, push to `main`, and a GitHub Action opens a
-sync PR in every repo listed in [`.github/sync.yml`](.github/sync.yml).
+Shared dev-tooling config (pre-commit hooks, Makefile, version-bump/tag
+scripts, and tool configs for bandit/ty/mypy) for POS repos. Edit a file
+here, push to `main`, and a GitHub Action opens a sync PR in every repo
+listed in [`.github/sync.yml`](.github/sync.yml).
+
+`ty.toml`, `bandit.toml`, and `mypy.ini` are standalone config files (not
+inside `pyproject.toml`) specifically so they *can* be synced — each
+target repo's `pyproject.toml` holds per-project metadata (name, version,
+deps) that must stay project-specific and is never synced.
 
 ## One-time setup
 

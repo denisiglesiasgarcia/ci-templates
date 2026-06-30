@@ -7,6 +7,9 @@ on:
       - ".pre-commit-config.yaml"
       - "Makefile"
       - "scripts/**"
+      - "ty.toml"
+      - "bandit.toml"
+      - "mypy.ini"
       - ".github/sync.yml"
   workflow_dispatch: {}
 

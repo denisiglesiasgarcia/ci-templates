@@ -11,6 +11,9 @@ group:
       - source: Makefile
       - source: scripts/auto_bump_patch.sh
       - source: scripts/tag_version.sh
+      - source: ty.toml
+      - source: bandit.toml
+      - source: mypy.ini
     PR_LABELS:
       - sync
     PR_BODY: |
