@@ -18,3 +18,4 @@ group:
 
       Review the diff, then merge to pick up the update.
     COMMIT_PREFIX: "chore(sync): "
+# retrigger: PAT widened to include sitg-geocode
