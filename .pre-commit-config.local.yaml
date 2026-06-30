@@ -1,0 +1,17 @@
+# Pre-commit hooks for THIS repo only (not synced to target repos).
+#
+# .pre-commit-config.yaml in this same directory is payload — it gets copied
+# verbatim into target repos by repo-file-sync-action (see .github/sync.yml)
+# and must stay as the full hook set those repos need. This file is separate
+# so checking ci-templates' own content doesn't collide with that payload.
+#
+# Setup:
+#   uv run pre-commit install -c .pre-commit-config.local.yaml
+# Manual run:
+#   uv run pre-commit run -c .pre-commit-config.local.yaml --all-files
+
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks

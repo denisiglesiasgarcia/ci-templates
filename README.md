@@ -31,3 +31,21 @@ force-pushed or auto-merged.
 2. Make sure the PAT in `GH_PAT` has access to that repo (fine-grained tokens
    need to be re-scoped to include it).
 3. Push — the next sync run will open the initial PR there too.
+
+## Checks on this repo itself
+
+This repo isn't a `uv` project (no Python deps to lock/sync), so
+`.pre-commit-config.yaml` here is **payload only** — don't run it directly
+against this repo, it's meant to be copied into target repos as-is.
+
+[`.pre-commit-config.local.yaml`](.pre-commit-config.local.yaml) is a separate,
+minimal config (currently just gitleaks) that actually runs against this
+repo's own content, since it holds a PAT-bearing workflow and shouldn't leak
+secrets either. Already installed via:
+
+```
+uv run pre-commit install -c .pre-commit-config.local.yaml
+```
+
+(or `uvx pre-commit install -c .pre-commit-config.local.yaml` if you don't
+want a local venv here at all).
