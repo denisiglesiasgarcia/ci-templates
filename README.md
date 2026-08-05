@@ -31,6 +31,22 @@ to `main`. The `sync` workflow opens a PR titled with the `chore(sync):`
 prefix in each target repo — review the diff and merge it there. Nothing is
 force-pushed or auto-merged.
 
+## Bytecode precompilation
+
+Because `uv-lock --upgrade` + `uv-sync` run on every commit, the venv in a
+target repo is rebuilt constantly. uv installs without `.pyc` files by
+default, so the next Jupyter kernel start (or CLI run) pays the full compile
+cost of every imported package — that's the "kernel hangs on restart" symptom.
+
+Both places that build a venv now precompile:
+
+- `.pre-commit-config.yaml` — `uv-sync` gets `--compile-bytecode`
+- `Makefile` — exports `UV_COMPILE_BYTECODE=1` for every `uv` call it makes
+
+If a kernel still feels slow after installing something by hand, run
+`make warm` to compile the existing venv in place (no reinstall, no lock
+change).
+
 ## Adding a new POS repo to the sync
 
 1. Add `owner/repo` to the `repos:` block in `.github/sync.yml`.
